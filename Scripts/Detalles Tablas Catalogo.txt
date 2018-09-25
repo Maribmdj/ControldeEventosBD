@@ -1,0 +1,29 @@
+---TABLAS CATALOGOS
+Pais
+pronvincia
+canton
+distrito
+nacionalidad
+ocupacion
+tipoPublico: NIÑOS, JOVENES, ALDULTOS MAYORES, PUBLICO GENERAL, GEEKS, DOMINIO TECNICO BASICO
+estado: Activo - Inactivo - Cancelado - Pendiente
+tipoPersona: Administrador - Participante - Patrocinador
+tipoParticipante: Estudiante - Externo(Empresas)
+
+
+---OTRAS TABLAS
+INSTITUCION
+EVENTO
+ACTIVIDAD
+
+PERSONA
+
+CORREO
+TELEFONO
+CONTACTOEMERGENCIA
+USUARIO
+BITACORAUSUARIO
+
+
+PARTICIPA** ACTIV - PERSONA
+BITACORAPERSONA
