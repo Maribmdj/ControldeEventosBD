@@ -1,0 +1,17 @@
+-- CE: DATA
+CREATE TABLESPACE CE_Data
+DATAFILE 'D:\app\Mariela\oradata\dbprueba\cedata01.dbf'
+SIZE 10M
+REUSE
+AUTOEXTEND ON
+NEXT 512k
+MAXSIZE 200M;
+--
+-- CE: INDEX
+CREATE TABLESPACE CE_Ind
+DATAFILE 'D:\app\Mariela\oradata\dbprueba\ceind01.dbf'
+SIZE 10M
+REUSE
+AUTOEXTEND ON
+NEXT 512k
+MAXSIZE 200M;

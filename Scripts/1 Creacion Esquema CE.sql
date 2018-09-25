@@ -1,0 +1,9 @@
+-- conectado a system
+CREATE USER CE
+IDENTIFIED BY CE
+DEFAULT TABLESPACE CE_Data 
+QUOTA 10M ON CE_Data
+TEMPORARY TABLESPACE temp
+QUOTA 5M ON system ;
+      ---PROFILE app_user
+      ---PASSWORD EXPIRE;
