@@ -12,7 +12,7 @@ create table TIPOPERSONA
     Usuario_creacion VARCHAR2(10),
     Fecha_ultima_modificacion DATE,
     Usuario_ultima_modificacion VARCHAR2(10)
-)
+);
 
 ALTER table TIPOPERSONA add constraint pk_TPersona primary key (id_TipoPersona)
 using index tablespace ce_ind pctfree 20 

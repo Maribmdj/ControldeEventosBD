@@ -13,7 +13,7 @@ create table CORREO
     Usuario_creacion VARCHAR2(10),
     Fecha_ultima_modificacion DATE,
     Usuario_ultima_modificacion VARCHAR2(10)
-)
+);
 
 ALTER table CORREO add constraint pk_CORREO primary key (ID_CORREO)
 using index tablespace ce_ind pctfree 20 
