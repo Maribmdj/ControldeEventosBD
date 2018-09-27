@@ -1,0 +1,34 @@
+/*
+Fecha: 26 SETIEMBRE 2018
+Autor: Mariela Barrantes
+Descripcion: TABLA USUARIO
+*/
+create table USUARIO
+(
+    ID_USUARIO number(6),
+    USUARIO varchar2(20) CONSTRAINT USUARIO_USUARIO_NN NOT NULL,
+    CLAVE varchar2(20) CONSTRAINT USUARIO_CLAVE_NN NOT NULL,        
+    ID_PERSONA NUMBER(6), CONSTRAINT FK_PERSONAUS FOREIGN KEY (ID_PERSONA) REFERENCES PERSONA(ID_PERSONA),
+    --Atributos Auditoria
+    Fecha_creacion DATE,
+    Usuario_creacion VARCHAR2(10),
+    Fecha_ultima_modificacion DATE,
+    Usuario_ultima_modificacion VARCHAR2(10)
+);
+
+ALTER table USUARIO add constraint pk_USUARIO primary key (ID_USUARIO)
+using index tablespace ce_ind pctfree 20 
+storage (initial 10k next 10k pctincrease 0);
+
+---------------------------------------------------------------
+--Comentarios de la tabla y atributos
+COMMENT ON TABLE USUARIO IS 'TABLA DEL USUARIO DE PERSONA';
+COMMENT ON COLUMN CE.USUARIO.ID_USUARIO IS 'IDENTIFICADOR ÚNICO DE LA TABLA';
+COMMENT ON COLUMN CE.USUARIO.USUARIO IS 'ATRIBUTO DEL NOMBRE DEL USUARIO DE PERSONA';
+COMMENT ON COLUMN CE.USUARIO.CLAVE IS 'ATRIBUTO DE LA CLAVE DEL USUARIO DE PERSONA';
+COMMENT ON COLUMN CE.USUARIO.ID_PERSONA IS 'ATRIBUTO REFERENCIADO DE LA TABLA PERSONA';
+
+COMMENT ON COLUMN CE.USUARIO.Fecha_creacion IS 'ATRIBUTO AUDITORIA';
+COMMENT ON COLUMN CE.USUARIO.Usuario_creacion IS 'ATRIBUTO AUDITOIA';
+COMMENT ON COLUMN CE.USUARIO.Fecha_ultima_modificacion IS 'ATRIBUTO AUDITORIA';
+COMMENT ON COLUMN CE.USUARIO.Usuario_ultima_modificacion IS 'ATRIBUTO AUDITORIA';
