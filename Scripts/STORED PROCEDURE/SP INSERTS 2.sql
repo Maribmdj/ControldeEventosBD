@@ -32,7 +32,7 @@ CREATE OR REPLACE
 -----SEGUIR AQUI: EJECUTAR    
 --TABLA BITACORA_USUARIO
 CREATE OR REPLACE 
-       PROCEDURE INSERTAR_BITACORA_USUARIO(pefcha in date, pclaveAnt in varchar2, pclaveAct in varchar2, pidUsuario IN NUMBER)
+       PROCEDURE INSERTAR_BITACORA_USUARIO(pfecha in date, pclaveAnt in varchar2, pclaveAct in varchar2, pidUsuario IN NUMBER)
        AS
        BEGIN
          INSERT INTO BITACORA_USUARIO(ID_BUSUARIO, FECHA, CLAVE_ANTERIOR, CLAVE_ACTUAL, ID_USUARIO, FECHA_CREACION, USUARIO_CREACION)
@@ -72,17 +72,23 @@ CREATE OR REPLACE
        PROCEDURE INSERTAR_INSTITUCION(pNombre in varchar2)
        AS
        BEGIN
-         INSERT INTO INSTITUTCION(ID_INSTITUCION, NOMBRE, FECHA_CREACION, USUARIO_CREACION)
+         INSERT INTO INSTITUCION(ID_INSTITUCION, NOMBRE, FECHA_CREACION, USUARIO_CREACION)
          VALUES (SID_INSTITUCION.NEXTVAL, pNombre, SYSDATE, USER);
        END;
        
 --TABLA PERSONA
 CREATE OR REPLACE 
-       PROCEDURE INSERTAR_PERSONA(pNombre in varchar2)
+       PROCEDURE INSERTAR_PERSONA(pNombre in varchar2, pApellido in varchar2,pApellido2 in varchar2, pidentificacion IN varchar2,
+         pfoto in varchar2, pdir in varchar2, piddistrito in number, pidNac in number, pidocupacion in number, pidTpersona in number,
+         pidTparticipante in number, pidInstitucion in number)
        AS
        BEGIN
-         INSERT INTO PERSONA(ID_BITACORA, FECHA, HORA, ID_ACTANTERIOR, ID_ACTACTUAL, ID_PERSONA, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_PERSONA.NEXTVAL, SYSDATE, USER);
+         INSERT INTO PERSONA(ID_PERSONA, NOMBRE, APELLIDO1, APELLIDO2, NUM_IDENTIFICACION, FOTO, DIRECCION, ID_DISTRITO, 
+                ID_NACIONALIDAD, ID_OCUPACION, ID_TPERSONA, ID_TPARTICIPANTE, ID_INSTITUCION, FECHA_CREACION, USUARIO_CREACION)
+                
+         VALUES (SID_PERSONA.NEXTVAL, pNombre, pApellido, pApellido2, pidentificacion, pfoto, pdir, piddistrito, 
+                pidNac, pidocupacion, pidTpersona, pidTparticipante, pidInstitucion, SYSDATE, USER);
+                       
        END;
        
 --TABLA TELEFONO
@@ -90,7 +96,7 @@ CREATE OR REPLACE
        PROCEDURE INSERTAR_TELEFONO(pNombre in varchar2, pidPersona IN NUMBER)
        AS
        BEGIN
-         INSERT INTO TELEFON(ID_TELEFONO, NOMBRE, ID_PERSONA, FECHA_CREACION, USUARIO_CREACION)
+         INSERT INTO TELEFONO(ID_TELEFONO, NOMBRE, ID_PERSONA, FECHA_CREACION, USUARIO_CREACION)
          VALUES (SID_TELEFONO.NEXTVAL, pNombre, pidPersona, SYSDATE, USER);
        END;
        
