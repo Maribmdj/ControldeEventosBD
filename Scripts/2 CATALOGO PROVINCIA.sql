@@ -14,7 +14,7 @@ create table PROVINCIA
     Usuario_creacion VARCHAR2(10),
     Fecha_ultima_modificacion DATE,
     Usuario_ultima_modificacion VARCHAR2(10)
-)
+);
 
 ALTER table PROVINCIA add constraint pk_PROVINCIA primary key (id_Provincia)
 using index tablespace ce_ind pctfree 20 

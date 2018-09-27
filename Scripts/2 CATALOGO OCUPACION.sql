@@ -12,7 +12,7 @@ create table OCUPACION
     Usuario_creacion VARCHAR2(10),
     Fecha_ultima_modificacion DATE,
     Usuario_ultima_modificacion VARCHAR2(10)
-)
+);
 
 ALTER table OCUPACION add constraint pk_Ocupacion primary key (id_Ocupacion)
 using index tablespace ce_ind pctfree 20 

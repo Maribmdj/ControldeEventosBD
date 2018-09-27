@@ -18,7 +18,7 @@ create table EVENTO
     Usuario_creacion VARCHAR2(10),
     Fecha_ultima_modificacion DATE,
     Usuario_ultima_modificacion VARCHAR2(10)
-)
+);
 
 ALTER table EVENTO add constraint pk_EVENTO primary key (ID_EVENTO)
 using index tablespace ce_ind pctfree 20 

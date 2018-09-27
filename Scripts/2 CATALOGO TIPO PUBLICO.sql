@@ -9,7 +9,7 @@ create table tipoPublico
     Usuario_creacion VARCHAR2(10),
     Fecha_ultima_modificacion DATE,
     Usuario_ultima_modificacion VARCHAR2(10)
-)
+);
 
 ALTER table tipoPublico add constraint pk_tipoPublico primary key (id_TipoPublico)
 using index tablespace ce_ind pctfree 20 
