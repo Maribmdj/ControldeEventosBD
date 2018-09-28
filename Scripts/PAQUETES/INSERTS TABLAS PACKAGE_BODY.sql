@@ -10,8 +10,8 @@ CREATE OR REPLACE PACKAGE BODY INSERTS_TABLAS IS
          plugar in varchar2, pevento in number, pestado in number, ptpublico in number)
        AS
        BEGIN
-         INSERT INTO ACTIVIDAD(ID_ACTIVIDAD, NOMBRE, FECHA, HORAINICIO, HORAFIN, CUPO, LUGAR, ID_EVENTO, ID_ESTADO, ID_TIPO_PUBLICO, FECHA_CREACION, USUARIO_CREACION)  
-         VALUES(SID_ACTIVIDAD.NEXTVAL, pNombre, pfecha, phoraI, phoraF, pcupo, plugar, pevento, pestado, ptpublico, SYSDATE, USER);
+         INSERT INTO ACTIVIDAD(ID_ACTIVIDAD, NOMBRE, FECHA, HORAINICIO, HORAFIN, CUPO, LUGAR, ID_EVENTO, ID_ESTADO, ID_TIPO_PUBLICO)
+         VALUES(SID_ACTIVIDAD.NEXTVAL, pNombre, pfecha, phoraI, phoraF, pcupo, plugar, pevento, pestado, ptpublico);
        END;
        
        --TABLA ACTXPERSONA
@@ -21,48 +21,48 @@ CREATE OR REPLACE PACKAGE BODY INSERTS_TABLAS IS
        PROCEDURE INSERTAR_ACTXPERSONA(pidPersona in number, pidActividad in number)
        AS
        BEGIN
-         INSERT INTO ACTXPERSONA(ID_ACTXPERSONA, ESTADO, ID_PERSONA, ID_ACTIVIDAD, FECHA_CREACION, USUARIO_CREACION)
-         VALUES(SID_ACTXPERSONA.NEXTVAL, 'ACTIVA', pidPersona, pidActividad, SYSDATE, USER);
+         INSERT INTO ACTXPERSONA(ID_ACTXPERSONA, ESTADO, ID_PERSONA, ID_ACTIVIDAD)
+         VALUES(SID_ACTXPERSONA.NEXTVAL, 'ACTIVA', pidPersona, pidActividad);
        END;
        
        --TABLA BITACORA_AXP
        PROCEDURE INSERTAR_BITACORA_AXP(pfecha in date, phora in date, pidAAnterior in number, pidAActual in number, pidPersona in number)
        AS
        BEGIN
-         INSERT INTO BITACORA_AXP(ID_BITACORA, FECHA, HORA, ID_ACTANTERIOR, ID_ACTACTUAL, ID_PERSONA, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_BACTXPERSONA.NEXTVAL, pfecha, phora, pidAAnterior, pidAActual, pidPersona, SYSDATE, USER);
+         INSERT INTO BITACORA_AXP(ID_BITACORA, FECHA, HORA, ID_ACTANTERIOR, ID_ACTACTUAL, ID_PERSONA)
+         VALUES (SID_BACTXPERSONA.NEXTVAL, pfecha, phora, pidAAnterior, pidAActual, pidPersona);
        END;
        
        --TABLA BITACORA_USUARIO
        PROCEDURE INSERTAR_BITACORA_USUARIO(pfecha in date, pclaveAnt in varchar2, pclaveAct in varchar2, pidUsuario IN NUMBER)
        AS
        BEGIN
-         INSERT INTO BITACORA_USUARIO(ID_BUSUARIO, FECHA, CLAVE_ANTERIOR, CLAVE_ACTUAL, ID_USUARIO, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_BUSUARIO.NEXTVAL, pfecha, pclaveAnt, pclaveAct, pidUsuario, SYSDATE, USER);
+         INSERT INTO BITACORA_USUARIO(ID_BUSUARIO, FECHA, CLAVE_ANTERIOR, CLAVE_ACTUAL, ID_USUARIO)
+         VALUES (SID_BUSUARIO.NEXTVAL, pfecha, pclaveAnt, pclaveAct, pidUsuario);
        END;
        
        --TABLA CONTACTOEMG
        PROCEDURE INSERTAR_CONTACTOEMG(pNombre in varchar2, pApellido in varchar2, ptelef in varchar2, pidPersona in number)
        AS
        BEGIN
-         INSERT INTO CONTACTOEMG(ID_CONTACTOEMG, NOMBRE, APELLIDO, TELEFONO, ID_PERSONA, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_CONTACTOEMG.NEXTVAL, pNombre, pApellido, ptelef, pidPersona, SYSDATE, USER);
+         INSERT INTO CONTACTOEMG(ID_CONTACTOEMG, NOMBRE, APELLIDO, TELEFONO, ID_PERSONA)
+         VALUES (SID_CONTACTOEMG.NEXTVAL, pNombre, pApellido, ptelef, pidPersona);
        END;
        
        --TABLA CORREO
        PROCEDURE INSERTAR_CORREO(pNombre in varchar2, pidPersona IN NUMBER)
        AS
        BEGIN
-         INSERT INTO CORREO(ID_CORREO, NOMBRE, ID_PERSONA, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_CORREO.NEXTVAL, pNombre, pidPersona, SYSDATE, USER);
+         INSERT INTO CORREO(ID_CORREO, NOMBRE, ID_PERSONA)
+         VALUES (SID_CORREO.NEXTVAL, pNombre, pidPersona);
        END;
        
        --TABLA EVENTO
        PROCEDURE INSERTAR_EVENTO(pNombre in varchar2, pfechai IN DATE, pfechaf IN DATE, plugar in varchar2, pidEstado IN NUMBER)
        AS
        BEGIN
-         INSERT INTO EVENTO(ID_EVENTO, NOMBRE, FECHAINICIO, FECHAFIN, LUGAR, ID_ESTADO, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_EVENTO.NEXTVAL, pnombre, pfechai, pfechaf, plugar, pidestado, SYSDATE, USER);
+         INSERT INTO EVENTO(ID_EVENTO, NOMBRE, FECHAINICIO, FECHAFIN, LUGAR, ID_ESTADO)
+         VALUES (SID_EVENTO.NEXTVAL, pnombre, pfechai, pfechaf, plugar, pidestado);
        END;
        
        
@@ -70,8 +70,8 @@ CREATE OR REPLACE PACKAGE BODY INSERTS_TABLAS IS
        PROCEDURE INSERTAR_INSTITUCION(pNombre in varchar2)
        AS
        BEGIN
-         INSERT INTO INSTITUCION(ID_INSTITUCION, NOMBRE, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_INSTITUCION.NEXTVAL, pNombre, SYSDATE, USER);
+         INSERT INTO INSTITUCION(ID_INSTITUCION, NOMBRE)
+         VALUES (SID_INSTITUCION.NEXTVAL, pNombre);
        END;
        
        --TABLA PERSONA
@@ -81,26 +81,26 @@ CREATE OR REPLACE PACKAGE BODY INSERTS_TABLAS IS
        AS
        BEGIN
          INSERT INTO PERSONA(ID_PERSONA, NOMBRE, APELLIDO1, APELLIDO2, NUM_IDENTIFICACION, FOTO, DIRECCION, ID_DISTRITO, 
-                ID_NACIONALIDAD, ID_OCUPACION, ID_TPERSONA, ID_TPARTICIPANTE, ID_INSTITUCION, FECHA_CREACION, USUARIO_CREACION)
+                ID_NACIONALIDAD, ID_OCUPACION, ID_TPERSONA, ID_TPARTICIPANTE, ID_INSTITUCION)
                 
          VALUES (SID_PERSONA.NEXTVAL, pNombre, pApellido, pApellido2, pidentificacion, pfoto, pdir, piddistrito, 
-                pidNac, pidocupacion, pidTpersona, pidTparticipante, pidInstitucion, SYSDATE, USER);                       
+                pidNac, pidocupacion, pidTpersona, pidTparticipante, pidInstitucion);                       
        END;
        
        --TABLA TELEFONO
        PROCEDURE INSERTAR_TELEFONO(pNombre in varchar2, pidPersona IN NUMBER)
        AS
        BEGIN
-         INSERT INTO TELEFONO(ID_TELEFONO, NOMBRE, ID_PERSONA, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_TELEFONO.NEXTVAL, pNombre, pidPersona, SYSDATE, USER);
+         INSERT INTO TELEFONO(ID_TELEFONO, NOMBRE, ID_PERSONA)
+         VALUES (SID_TELEFONO.NEXTVAL, pNombre, pidPersona);
        END;
        
        --TABLA USUARIO 
        PROCEDURE INSERTAR_USUARIO(pUsuario in varchar2, pClave in varchar2, pidPersona IN NUMBER)
        AS
        BEGIN
-         INSERT INTO USUARIO(ID_USUARIO, USUARIO, CLAVE, ID_PERSONA, FECHA_CREACION, USUARIO_CREACION)
-         VALUES (SID_USUARIO.NEXTVAL, pUsuario, pClave, pidPersona, SYSDATE, USER);
+         INSERT INTO USUARIO(ID_USUARIO, USUARIO, CLAVE, ID_PERSONA)
+         VALUES (SID_USUARIO.NEXTVAL, pUsuario, pClave, pidPersona);
        END;
 
 END INSERTS_TABLAS;
