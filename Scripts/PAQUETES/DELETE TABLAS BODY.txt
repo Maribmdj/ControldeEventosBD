@@ -1,0 +1,105 @@
+/*
+Fecha: 28 SETIEMBRE 2018
+Autor: Nakisha Dixon
+Descripcion: PAQUETE (BODY) Stored Procedures DELETE de las TABLAS CATALOGOS
+*/
+--TABLA ACTIVIDAD
+CREATE OR REPLACE 
+       PROCEDURE DELETE_ACTIVIDAD(pidACTIVIDAD IN NUMBER)
+       AS
+       BEGIN
+         DELETE ACTIVIDAD 
+         Where pIdActividad = ID_ACTIVIDAD;
+       END;
+       
+--TABLA ACTXPERSONA
+CREATE OR REPLACE 
+       PROCEDURE DELETE_AXP(pidAXP IN NUMBER)
+       AS
+       BEGIN
+         DELETE ACTXPERSONA
+         Where pIdAXP = ID_ACTXPERSONA;
+       END;
+       
+--TABLA BITACORA_AXP
+CREATE OR REPLACE 
+       PROCEDURE DELETE_BITACORA_AXP(pIdBitAXP in number)
+       AS
+       BEGIN
+         DELETE BITACORA_AXP
+         Where pIdBitAXP = ID_BACTXPERSONA;
+       END;
+       
+   
+--TABLA BITACORA_USUARIO
+CREATE OR REPLACE 
+       PROCEDURE DELETE_BITACORA_USUARIO(pidBitUsuario IN NUMBER)
+       AS
+       BEGIN
+         DELETE BITACORA_USUARIO
+         Where p = ID_ACTXPERSONA;
+       END;
+       
+--TABLA CONTACTOEMG
+CREATE OR REPLACE 
+       PROCEDURE DELETE_CONTACTOEMG(pIdNumEmergencia IN NUMBER)
+       AS
+       BEGIN
+         DELETE CONTACTOEMG
+         Where pIdNumEmergencia = ID_CONTACTOEMG;
+       END;
+       
+--TABLA CORREO
+CREATE OR REPLACE 
+       PROCEDURE DELETE_CORREO(pIdCorreo IN NUMBER)
+       AS
+       BEGIN
+         DELETE CORREO
+         Where pIdCorreo = ID_Correo;
+       END;
+       
+--TABLA EVENTO
+CREATE OR REPLACE 
+       PROCEDURE DELETE_EVENTO(pIdEvento IN NUMBER)
+       AS
+       BEGIN
+         DELETE EVENTO
+         Where pIdEvento = ID_Evento;
+       END;
+       
+       
+--TABLA INSTITUCION
+CREATE OR REPLACE 
+       PROCEDURE DELETE_INSTITUCION(pIdInstitucion in number)
+       AS
+       BEGIN
+         DELETE INSTITUCION
+         Where pIDINSTITUCION = ID_INSTITUCION;
+       END;
+       
+--TABLA PERSONA
+CREATE OR REPLACE 
+       PROCEDURE INSERTAR_PERSONA(pIDPERSONA in NUMBER)
+       AS
+       BEGIN
+         DELETE PERSONA
+         Where pIDPERSONA = ID_PERSONA;
+       END;
+       
+--TABLA TELEFONO
+CREATE OR REPLACE 
+       PROCEDURE DELETE_TELEFONO(pIDTELEFONO IN NUMBER)
+       AS
+       BEGIN
+         DELETE TELEFONO
+         Where pIDTELEFONO = ID_TELEFONO;
+       END;
+       
+--TABLA USUARIO
+CREATE OR REPLACE 
+       PROCEDURE DELETE_USUARIO(pIDUsuario IN NUMBER)
+       AS
+       BEGIN
+         DELETE USUARIO
+         Where pIDUSUARIO = ID_USUARIO;
+       END;
