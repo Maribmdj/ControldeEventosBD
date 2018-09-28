@@ -1,45 +1,61 @@
 /*
-Fecha: 26 SETIEMBRE 2018
+Fecha: 27 SETIEMBRE 2018
 Autor: Mariela Barrantes
-Descripcion: PAQUETE (BODY) PARA ATUALIZAR LAS TABLAS CATALOGOS
+Descripcion: PAQUETE (BODY) PARA ATUALIZAR LAS TABLAS NO CATALOGOS
 */
 
+--INSTITUCION
+--EVENTO
+--ACTIVIDAD
+
+--PERSONA
+
+--CORREO
+--TELEFONO
+--CONTACTOEMERGENCIA
+--USUARIO
+--BITACORAUSUARIO
+--PARTICIPA** ACTIV - PERSONA
+--BITACORAPERSONA
+
 CREATE OR REPLACE 
-PROCEDURE UPDATE_PAIS(pidPais IN NUMBER, pNombre IN VARCHAR2)
+PROCEDURE UPDATE_INSTITUCION(pidInstitucion IN NUMBER, pNombre IN VARCHAR2)
 AS
 BEGIN
-    UPDATE PAIS
+    UPDATE INSTITUCION
     SET NOMBRE = pNombre
-    WHERE ID_PAIS = pidPais;
+    WHERE ID_INSTITUCION = pidInstitucion;
     COMMIT;
 END;
 
 CREATE OR REPLACE 
-PROCEDURE UPDATE_PROVINCIA(pidProvincia IN NUMBER, pNombre IN VARCHAR2)
+PROCEDURE UPDATE_EVENTO(pidEvento IN NUMBER, pNombre IN VARCHAR2, pfechai in date, pfechaf in date, plugar in varchar2, pidestado in number)
 AS
 BEGIN
-    UPDATE PROVINCIA
-    SET NOMBRE = pNombre
-    WHERE ID_PROVINCIA = pidProvincia;
+    UPDATE EVENTO
+    SET NOMBRE = pNombre, FECHAINICIO = pfechai, FECHAFIN = pfechaF, LUGAR = plugar, ID_ESTADO = pidestado
+    WHERE ID_EVENTO = pidEvento;
     COMMIT;
 END;
 
 CREATE OR REPLACE 
-PROCEDURE UPDATE_CANTON(pidCanton IN NUMBER, pNombre IN VARCHAR2)
+PROCEDURE UPDATE_ACTIVIDAD(pidAct IN NUMBER, pNombre IN VARCHAR2, pfecha in date, phorai in date, phoraf in date, 
+  pcupo in number, plugar in varchar2, pidevento in number, pidestado in number, pidTpublico in number)
 AS
 BEGIN
-    UPDATE CANTON
-    SET NOMBRE = pNombre
-    WHERE ID_CANTON = pidCanton;
+    UPDATE ACTIVIDAD
+    SET NOMBRE = pNombre, FECHA = pfecha, HORAINICIO = phorai, HORAFIN = phoraf, CUPO = pcupo, LUGAR = plugar, 
+        ID_EVENTO = pidevento, ID_ESTADO = pidestado, ID_TIPO_PUBLICO = pidTpublico
+    WHERE ID_ACTIVIDAD = pidAct;
     COMMIT;
 END;
 
 CREATE OR REPLACE 
-PROCEDURE UPDATE_DISTRITO(pidDistrito IN NUMBER, pNombre IN VARCHAR2)
+PROCEDURE UPDATE_CORREO(pidCorreo IN NUMBER, pNombre IN VARCHAR2,pidPersona in number)
 AS
 BEGIN
-    UPDATE DISTRITO
-    SET NOMBRE = pNombre
+    UPDATE CORREO
+    SET NOMBRE = pNombre, ID_PERSONA = pidPersona
     WHERE ID_DISTRITO = pidDistrito;
     COMMIT;
 END;
