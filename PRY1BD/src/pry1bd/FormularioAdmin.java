@@ -5,6 +5,10 @@
  */
 package pry1bd;
 
+import java.util.ArrayList;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
 /**
  *
  * @author Nakisha Dixon
@@ -16,6 +20,73 @@ public class FormularioAdmin extends javax.swing.JFrame {
      */
     public FormularioAdmin() {
         initComponents();
+    }
+    
+    public void llenarPaquetes(ArrayList<Actividades> actividades){
+
+        panelEventos.removeAll();
+        panelEventos.repaint();
+        int v=ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
+        int h=ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER; 
+        JScrollPane scroll = new javax.swing.JScrollPane(panelEventos,v , h );
+        scroll.setPreferredSize(new java.awt.Dimension(730,400));
+        this.remove(scroll);
+        if(actividades.size()>10){
+            this.panelEventos.setPreferredSize(new java.awt.Dimension(730, 400+((actividades.size()-10)*45)));
+        }else{
+            this.panelEventos.setPreferredSize(new java.awt.Dimension(730, 400));
+        }
+        int x=50;
+        int y=1;
+        int cont = 0;
+        jPanel1.add(scroll);
+        scroll.setBounds(5, 230, 990, 290);
+        scroll.repaint();
+        scroll.revalidate();
+        for(Actividades actDatos: actividades){
+            javax.swing.JCheckBox check = new javax.swing.JCheckBox();
+            javax.swing.JLabel labelActividad = new javax.swing.JLabel();
+            javax.swing.JLabel labelLugar = new javax.swing.JLabel();
+            javax.swing.JLabel labelFecha = new javax.swing.JLabel();
+            javax.swing.JLabel labelHora = new javax.swing.JLabel();
+            javax.swing.JLabel labelCupoDisponible = new javax.swing.JLabel();
+            setLabelAtributes(labelActividad, cont, check);
+            setLabelAtributes(labelLugar, cont, check);
+            setLabelAtributes(labelHora, cont, check);
+            setLabelAtributes(labelCuponDisponible, cont, check);
+            labelCourier.setText(paquete.getCompania());
+            labelDescripcion.setText(paquete.getDescripcion());
+            labelRemitente.setText(paquete.getTienda());
+            labelEstado.setText(paquete.getEstado().getDescripcion());
+            labelUsuario.setText(paquete.getCliente().getNombre());
+            labelRecibido.setText("No se ha aplicado");
+            for(CambioDeEstado cambio: paquete.getCambios()){
+                if(cambio.getEstadoActual().getDescripcion().equals((String)this.estadosCombo2.getSelectedItem())){
+                    labelRecibido.setText(cambio.getFechaDeCambio());
+                    break;
+                }
+            }
+            this.panelEventos.add(labelActividad);
+            this.panelEventos.add(labelLugar);
+            this.panelEventos.add(labelFecha);
+            this.panelEventos.add(labelHora);
+            this.panelEventos.add(labelCupoDisponible);
+            labelActividad.setBounds(50, y, 180, 40);
+            labelLugar.setBounds(230, y, 170 ,40);
+            labelFecha.setBounds(400, y, 150, 40);
+            labelHora.setBounds(550, y, 160, 40);
+             check.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        revisarChecks(evt, check);
+                }
+            });
+            checkList.add(check);
+            check.setBounds(0, y, 50, 40);
+            y+=40;
+            cont++;
+           
+        }
     }
 
     /**
@@ -33,7 +104,15 @@ public class FormularioAdmin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        panelEventos = new javax.swing.JPanel();
+        comboevento = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -61,6 +140,7 @@ public class FormularioAdmin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 530));
+        jPanel1.setLayout(null);
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 153));
         jPanel3.setLayout(null);
@@ -71,6 +151,9 @@ public class FormularioAdmin extends javax.swing.JFrame {
         jPanel3.add(jLabel5);
         jLabel5.setBounds(290, 0, 340, 70);
 
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(0, 11, 750, 60);
+
         jPanel2.setBackground(new java.awt.Color(102, 153, 0));
         jPanel2.setLayout(null);
 
@@ -78,47 +161,49 @@ public class FormularioAdmin extends javax.swing.JFrame {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(340, 20, 34, 14);
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(756, 34, 750, 0);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 728, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
-        );
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel1.add(jPanel5);
+        jPanel5.setBounds(297, 230, 0, 0);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        panelEventos.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel1.add(panelEventos);
+        panelEventos.setBounds(10, 180, 730, 340);
+
+        comboevento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboevento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboeventoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(comboevento);
+        comboevento.setBounds(150, 80, 150, 30);
+
+        jButton1.setText("Buscar Evento ");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(30, 80, 110, 30);
+
+        jLabel1.setText("Actividad");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(40, 160, 70, 14);
+
+        jLabel2.setText("Lugar");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(140, 160, 27, 14);
+
+        jLabel3.setText("Fecha");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(260, 160, 34, 14);
+
+        jLabel4.setText("Hora");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(350, 160, 23, 14);
+
+        jLabel7.setText("Cupo Disponible");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(420, 160, 90, 14);
 
         jMenu3.setText("Consultas");
 
@@ -223,6 +308,10 @@ public class FormularioAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void comboeventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboeventoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboeventoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,8 +348,15 @@ public class FormularioAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboevento;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -285,6 +381,7 @@ public class FormularioAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel panelEventos;
     // End of variables declaration//GEN-END:variables
 }
