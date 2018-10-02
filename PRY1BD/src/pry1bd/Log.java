@@ -1,24 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pry1bd;
 
-/**
- *
- * @author Nakisha Dixon
- */
+import java.sql.Connection;
+import pry1bd.Conexion;
+
+
 public class Log extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Log
-     */
+    Conexion conectarse = new Conexion();
+    
+    
     public Log() {
         initComponents();
         setSize(700,530);
+        conectarse.Conectar();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

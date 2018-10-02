@@ -15,5 +15,3 @@ BEGIN
     :new.usuario_ultima_modificacion:=USER;
     :new.fecha_ultima_modificacion:=SYSDATE;
 END beforeUpdatePais;
-
---grant create trigger to ce
