@@ -1,0 +1,9 @@
+-Mitad de las consultas
+-Auditoria
+-Estadisticas
+-Mapa de eventos
+-Conexion Oracle-Netbeans
+-Documentacion
+-Trigger de inserción
+-Bitácora 
+-Diccionario de datos

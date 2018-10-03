@@ -22,7 +22,7 @@ public class FormularioAdmin extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void llenarPaquetes(ArrayList<Actividades> actividades){
+    public void llenarActividades(ArrayList<Actividades> actividades){
 
         panelEventos.removeAll();
         panelEventos.repaint();
@@ -54,18 +54,11 @@ public class FormularioAdmin extends javax.swing.JFrame {
             setLabelAtributes(labelLugar, cont, check);
             setLabelAtributes(labelHora, cont, check);
             setLabelAtributes(labelCuponDisponible, cont, check);
-            labelCourier.setText(paquete.getCompania());
-            labelDescripcion.setText(paquete.getDescripcion());
-            labelRemitente.setText(paquete.getTienda());
-            labelEstado.setText(paquete.getEstado().getDescripcion());
-            labelUsuario.setText(paquete.getCliente().getNombre());
-            labelRecibido.setText("No se ha aplicado");
-            for(CambioDeEstado cambio: paquete.getCambios()){
-                if(cambio.getEstadoActual().getDescripcion().equals((String)this.estadosCombo2.getSelectedItem())){
-                    labelRecibido.setText(cambio.getFechaDeCambio());
-                    break;
-                }
-            }
+            labelActividad.setText(paquete.getCompania());
+            labelLugar.setText(paquete.getDescripcion());
+            labelFecha.setText(paquete.getTienda());
+            labelHora.setText(paquete.getEstado().getDescripcion());
+            labelCupoDisponible.setText(paquete.getCliente().getNombre());
             this.panelEventos.add(labelActividad);
             this.panelEventos.add(labelLugar);
             this.panelEventos.add(labelFecha);

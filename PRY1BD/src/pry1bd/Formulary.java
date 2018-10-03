@@ -5,6 +5,10 @@
  */
 package pry1bd;
 
+import java.util.ArrayList;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
 /**
  *
  * @author Nakisha Dixon
@@ -31,7 +35,7 @@ public class Formulary extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        FormularyPanel = new javax.swing.JScrollPane();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -60,8 +64,8 @@ public class Formulary extends javax.swing.JFrame {
         jLabel2.setText("Cupo ");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(231, 203, 46, 20);
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(25, 229, 661, 290);
+        jPanel1.add(FormularyPanel);
+        FormularyPanel.setBounds(25, 229, 661, 290);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
@@ -178,8 +182,68 @@ public class Formulary extends javax.swing.JFrame {
             }
         });
     }
+    public void llenarActividades(ArrayList<Actividades> actividades){
+
+        panelEventos.removeAll();
+        panelEventos.repaint();
+        int v=ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
+        int h=ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER; 
+        JScrollPane scroll = new javax.swing.JScrollPane(panelEventos,v , h );
+        scroll.setPreferredSize(new java.awt.Dimension(730,400));
+        this.remove(scroll);
+        if(actividades.size()>10){
+            this.panelEventos.setPreferredSize(new java.awt.Dimension(730, 400+((actividades.size()-10)*45)));
+        }else{
+            this.panelEventos.setPreferredSize(new java.awt.Dimension(730, 400));
+        }
+        int x=50;
+        int y=1;
+        int cont = 0;
+        jPanel1.add(scroll);
+        scroll.setBounds(5, 230, 990, 290);
+        scroll.repaint();
+        scroll.revalidate();
+        for(Actividades actDatos: actividades){
+            javax.swing.JCheckBox check = new javax.swing.JCheckBox();
+            javax.swing.JLabel labelActividad = new javax.swing.JLabel();
+            javax.swing.JLabel labelLugar = new javax.swing.JLabel();
+            javax.swing.JLabel labelFecha = new javax.swing.JLabel();
+            javax.swing.JLabel labelHora = new javax.swing.JLabel();
+            javax.swing.JLabel labelCupoDisponible = new javax.swing.JLabel();
+            setLabelAtributes(labelActividad, cont, check);
+            setLabelAtributes(labelLugar, cont, check);
+            setLabelAtributes(labelHora, cont, check);
+            setLabelAtributes(labelCuponDisponible, cont, check);
+            labelActividad.setText(paquete.getCompania());
+            labelLugar.setText(paquete.getDescripcion());
+            labelFecha.setText(paquete.getTienda());
+            labelHora.setText(paquete.getEstado().getDescripcion());
+            labelCupoDisponible.setText(paquete.getCliente().getNombre());
+            this.panelEventos.add(labelActividad);
+            this.panelEventos.add(labelLugar);
+            this.panelEventos.add(labelFecha);
+            this.panelEventos.add(labelHora);
+            this.panelEventos.add(labelCupoDisponible);
+            labelActividad.setBounds(50, y, 180, 40);
+            labelLugar.setBounds(230, y, 170 ,40);
+            labelFecha.setBounds(400, y, 150, 40);
+            labelHora.setBounds(550, y, 160, 40);
+             check.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        revisarChecks(evt, check);
+                }
+            });
+            checkList.add(check);
+            check.setBounds(0, y, 50, 40);
+            y+=40;
+            cont++;
+           
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane FormularyPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -193,6 +257,5 @@ public class Formulary extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
