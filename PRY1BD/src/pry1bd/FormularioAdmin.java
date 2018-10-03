@@ -21,8 +21,13 @@ public class FormularioAdmin extends javax.swing.JFrame {
     public FormularioAdmin() {
         initComponents();
     }
+<<<<<<< HEAD
     
     public void llenarActividades(ArrayList<Actividades> actividades){
+=======
+/*    
+    public void llenarPaquetes(ArrayList<Actividades> actividades){
+>>>>>>> 636e60f95c8072b1c5c9df0c742ad5bec203e2eb
 
         panelEventos.removeAll();
         panelEventos.repaint();
@@ -81,7 +86,7 @@ public class FormularioAdmin extends javax.swing.JFrame {
            
         }
     }
-
+*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
