@@ -5,10 +5,7 @@
  */
 package Utilidades;
 
-import aplicacion.AplGrafica;
-import logicaDeNegocios.CambioDeEstado;
-import logicaDeNegocios.Paquete;
-import logicaDeNegocios.UsuarioCliente;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -40,7 +37,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.search.FlagTerm;
-import utilidades.XmlParser;
 
 
 public class EmailServer extends Thread{

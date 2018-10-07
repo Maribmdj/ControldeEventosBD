@@ -5,8 +5,12 @@
  */
 package pry1bd;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 
 /**
@@ -33,11 +37,7 @@ public class Formulary extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         FormularyPanel = new javax.swing.JScrollPane();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -45,39 +45,14 @@ public class Formulary extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(700, 530));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 500));
         jPanel1.setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("Actividad");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(96, 203, 60, 20);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("Cupo ");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(231, 203, 46, 20);
         jPanel1.add(FormularyPanel);
-        FormularyPanel.setBounds(25, 229, 661, 290);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setText("Fecha ");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(512, 203, 50, 20);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("Hora");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(426, 203, 34, 20);
+        FormularyPanel.setBounds(20, 190, 661, 290);
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 153));
         jPanel3.setLayout(null);
@@ -105,11 +80,11 @@ public class Formulary extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Evento");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(50, 90, 44, 17);
+        jLabel7.setBounds(50, 80, 44, 17);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(40, 120, 168, 31);
+        jComboBox1.setBounds(40, 100, 168, 31);
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -122,30 +97,32 @@ public class Formulary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(230, 120, 87, 31);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setText("Lugar");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(295, 205, 35, 17);
+        jButton1.setBounds(230, 100, 87, 31);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Vector columnas = new Vector();
+        Vector filas = new Vector();
+        JTable tbl = new JTable(filas,columnas);
+        tbl.setPreferredScrollableViewportSize(new Dimension(500, 80));
+        JScrollPane scroll =new JScrollPane(tbl);
+        getContentPane().add(scroll, BorderLayout.CENTER);
+        FormularyPanel.add(tbl);
+        getContentPane().invalidate();
+        getContentPane().validate();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -182,78 +159,15 @@ public class Formulary extends javax.swing.JFrame {
             }
         });
     }
-    public void llenarActividades(ArrayList<Actividades> actividades){
-
-        panelEventos.removeAll();
-        panelEventos.repaint();
-        int v=ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
-        int h=ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER; 
-        JScrollPane scroll = new javax.swing.JScrollPane(panelEventos,v , h );
-        scroll.setPreferredSize(new java.awt.Dimension(730,400));
-        this.remove(scroll);
-        if(actividades.size()>10){
-            this.panelEventos.setPreferredSize(new java.awt.Dimension(730, 400+((actividades.size()-10)*45)));
-        }else{
-            this.panelEventos.setPreferredSize(new java.awt.Dimension(730, 400));
-        }
-        int x=50;
-        int y=1;
-        int cont = 0;
-        jPanel1.add(scroll);
-        scroll.setBounds(5, 230, 990, 290);
-        scroll.repaint();
-        scroll.revalidate();
-        for(Actividades actDatos: actividades){
-            javax.swing.JCheckBox check = new javax.swing.JCheckBox();
-            javax.swing.JLabel labelActividad = new javax.swing.JLabel();
-            javax.swing.JLabel labelLugar = new javax.swing.JLabel();
-            javax.swing.JLabel labelFecha = new javax.swing.JLabel();
-            javax.swing.JLabel labelHora = new javax.swing.JLabel();
-            javax.swing.JLabel labelCupoDisponible = new javax.swing.JLabel();
-            setLabelAtributes(labelActividad, cont, check);
-            setLabelAtributes(labelLugar, cont, check);
-            setLabelAtributes(labelHora, cont, check);
-            setLabelAtributes(labelCuponDisponible, cont, check);
-            labelActividad.setText(paquete.getCompania());
-            labelLugar.setText(paquete.getDescripcion());
-            labelFecha.setText(paquete.getTienda());
-            labelHora.setText(paquete.getEstado().getDescripcion());
-            labelCupoDisponible.setText(paquete.getCliente().getNombre());
-            this.panelEventos.add(labelActividad);
-            this.panelEventos.add(labelLugar);
-            this.panelEventos.add(labelFecha);
-            this.panelEventos.add(labelHora);
-            this.panelEventos.add(labelCupoDisponible);
-            labelActividad.setBounds(50, y, 180, 40);
-            labelLugar.setBounds(230, y, 170 ,40);
-            labelFecha.setBounds(400, y, 150, 40);
-            labelHora.setBounds(550, y, 160, 40);
-             check.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        revisarChecks(evt, check);
-                }
-            });
-            checkList.add(check);
-            check.setBounds(0, y, 50, 40);
-            y+=40;
-            cont++;
-           
-        }
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane FormularyPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
