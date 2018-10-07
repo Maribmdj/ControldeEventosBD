@@ -1,0 +1,14 @@
+/*
+Fecha: 06 OCTUBRE 2018
+Autor: Nakisha Dixon
+Descripcion: INSERT Persona Tabla
+*/
+
+INSERTS_TABLAS.INSERTAR_PERSONA('Ivan', 'Ramirez','Lopez', 2017103353,null, '500 metros sur del Lagar', 1, 1, 1, 2,1, 1)
+INSERTS_TABLAS.INSERTAR_PERSONA('Adriana', 'Gamora', 'Soto', 2016335675, null, 'De la Soda Castro, 500 norte', 2, 1, 1, 2, 1 , 2)
+INSERTS_TABLAS.INSERTAR_PERSONA('Silvania', 'Lebron', 'Walters', 1176707345, null, 'Contiguo a pulperia la esquina', 1, 1, 3, 1, 2, 3)
+INSERTS_TABLAS.INSERTAR_PERSONA('Hector', 'Carabaca', 'Barrios', 7015034523 , null, 'Frente a la Iglesia Catolica', 3, 4, 2, 2, 2, 4)
+INSERTS_TABLAS.INSERTAR_PERSONA('Gloria', 'Rojas' , 'Ecomo', 1145784356,null, 'Urbanizacion Maderos', 3, 2, 3, 2,2, 1)
+INSERTS_TABLAS.INSERTAR_PERSONA('Ignacio', 'Santos', 'Cascante', 2014546576,null, 'Venia segunda loma', 3, 1, 2, 2,1, 4)
+INSERTS_TABLAS.INSERTAR_PERSONA('Mauricio', 'Valenciaga', 'Gabbana', 5067869806, null, 'Frente a Restaurant Verano', 8, 3, 1, 3,2, 5)
+INSERTS_TABLAS.INSERTAR_PERSONA('Adrian', 'Barrantes', 'Alvarado', 2018104567, null, 'Barrio Indigena, rancho 3', 9, 1, 1, 2,1, 4)

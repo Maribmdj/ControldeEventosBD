@@ -1,0 +1,14 @@
+/*
+Fecha: 06 OCTUBRE 2018
+Autor: Nakisha Dixon
+Descripcion: INSERT Correo Tabla
+*/
+
+INSERTS_TABLAS.INSERTAR_CORREO('ivanca@gmail.com', 2017103353)
+INSERTS_TABLAS.INSERTAR_CORREO('GamoraAdri@hotmail.com', 2016335675)
+INSERTS_TABLAS.INSERTAR_CORREO('silvibron@gmail.com', 1176707345)
+INSERTS_TABLAS.INSERTAR_CORREO('h.carabaca@yahoo.es', 7015034523)
+INSERTS_TABLAS.INSERTAR_CORREO('glo_rojas@gmail.com', 1145784356)
+INSERTS_TABLAS.INSERTAR_CORREO('ignaciosantos@gmail.com', 1145784356)
+INSERTS_TABLAS.INSERTAR_CORREO('Mauvalenciaga@hotmail.com', 5067869806)
+INSERTS_TABLAS.INSERTAR_CORREO('adri.barrantes@hotmail.com', 2018104567)

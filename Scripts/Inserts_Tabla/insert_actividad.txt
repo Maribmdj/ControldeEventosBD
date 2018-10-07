@@ -1,0 +1,12 @@
+/*
+Fecha: 06 OCTUBRE 2018
+Autor: Nakisha Dixon
+Descripcion: INSERT Actividad Tabla
+*/
+
+INSERTS_TABLAS.INSERTAR_ACTIVIDAD('Hackaton Femenina', '21/05/19', '15:00", '16:00', 15, 
+         'Edificio 15', 1, 1, 2)
+INSERTS_TABLAS.INSERTAR_ACTIVIDAD('Hackaton Junior', '20/05/19', '09:00", '12:00', 15, 
+         'Edificio 12', 1, 1, 1)
+INSERTS_TABLAS.INSERTAR_ACTIVIDAD('Campamento Tecnologico', '21/05/19', '15:00", '16:00', 15, 
+         'Auditorio 3A', 3, 1, 6)

@@ -1,0 +1,10 @@
+/*
+Fecha: 06 OCTUBRE 2018
+Autor: Nakisha Dixon
+Descripcion: INSERT Evento Tabla
+*/
+
+INSERTS_TABLAS.INSERTAR_EVENTO('Hackaton', '20/05/19', '20/11/19', 'TEC Cartago', 1)
+INSERTS_TABLAS.INSERTAR_EVENTO('Jackafest', '01/02/19', '21/02/19', 'TEC San Jose', 1)
+INSERTS_TABLAS.INSERTAR_EVENTO('Tic-As', '30/10/18', '20/11/18', 'Hotel Sheraton', 1)
+INSERTS_TABLAS.INSERTAR_EVENTO('CampFest', '20/05/19', '20/11/19', 'TEC Cartago', 1)     
