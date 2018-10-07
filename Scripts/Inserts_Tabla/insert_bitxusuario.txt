@@ -1,0 +1,6 @@
+/*
+Fecha: 06 OCTUBRE 2018
+Autor: Nakisha Dixon
+Descripcion: INSERT Bitacora Usuario Tabla
+*/
+
