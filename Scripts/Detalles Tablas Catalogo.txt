@@ -1,3 +1,9 @@
+/*
+Fecha: 01 OCTUBRE 2018
+Autor: Mariela Barrantes
+Descripcion: 
+*/
+
 ---TABLAS CATALOGOS
 Pais
 pronvincia
