@@ -1,5 +1,6 @@
 package pry1bd;
 
+import Utilidades.*;
 import java.sql.Connection;
 import pry1bd.Conexion;
 

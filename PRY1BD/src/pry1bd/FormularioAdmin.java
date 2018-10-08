@@ -213,7 +213,7 @@ public class FormularioAdmin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //DESPLEGAR EVENTOS
-         t.ver_tabla(tabla);
+         t.ver_eventos(tabla);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
