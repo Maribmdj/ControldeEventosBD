@@ -37,9 +37,9 @@ public class Actividad extends javax.swing.JPanel {
         jLabel19 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox10 = new javax.swing.JComboBox<>();
-        jComboBox11 = new javax.swing.JComboBox<>();
-        jComboBox12 = new javax.swing.JComboBox<>();
+        anio = new javax.swing.JComboBox<>();
+        mes = new javax.swing.JComboBox<>();
+        dia = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -47,13 +47,13 @@ public class Actividad extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        horaini = new javax.swing.JTextField();
+        horafin = new javax.swing.JTextField();
+        minutosfin = new javax.swing.JTextField();
+        minutosini = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -96,9 +96,9 @@ public class Actividad extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addContainerGap(177, Short.MAX_VALUE)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(33, 33, 33))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,32 +127,32 @@ public class Actividad extends javax.swing.JPanel {
         jPanel1.add(jLabel10);
         jLabel10.setBounds(370, 120, 80, 15);
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022" }));
-        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
+        anio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022" }));
+        anio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox10ActionPerformed(evt);
+                anioActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox10);
-        jComboBox10.setBounds(300, 260, 49, 20);
+        jPanel1.add(anio);
+        anio.setBounds(290, 260, 49, 20);
 
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        jComboBox11.addActionListener(new java.awt.event.ActionListener() {
+        mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        mes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox11ActionPerformed(evt);
+                mesActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox11);
-        jComboBox11.setBounds(230, 260, 40, 20);
+        jPanel1.add(mes);
+        mes.setBounds(230, 260, 40, 20);
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jComboBox12.addActionListener(new java.awt.event.ActionListener() {
+        dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox12ActionPerformed(evt);
+                diaActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox12);
-        jComboBox12.setBounds(170, 260, 40, 20);
+        jPanel1.add(dia);
+        dia.setBounds(170, 260, 40, 20);
 
         jLabel16.setText("Dia");
         jPanel1.add(jLabel16);
@@ -164,7 +164,7 @@ public class Actividad extends javax.swing.JPanel {
 
         jLabel20.setText("Año");
         jPanel1.add(jLabel20);
-        jLabel20.setBounds(310, 240, 40, 14);
+        jLabel20.setBounds(300, 240, 40, 14);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Fecha ");
@@ -184,13 +184,13 @@ public class Actividad extends javax.swing.JPanel {
         jPanel1.add(jLabel22);
         jLabel22.setBounds(270, 150, 40, 14);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nombreActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(30, 160, 150, 30);
+        jPanel1.add(nombre);
+        nombre.setBounds(30, 160, 150, 30);
 
         jLabel2.setText(":");
         jPanel1.add(jLabel2);
@@ -200,84 +200,93 @@ public class Actividad extends javax.swing.JPanel {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(400, 170, 4, 14);
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        horaini.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                horainiActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(220, 170, 30, 20);
+        jPanel1.add(horaini);
+        horaini.setBounds(220, 170, 30, 20);
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        horafin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                horafinActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(360, 170, 30, 20);
+        jPanel1.add(horafin);
+        horafin.setBounds(360, 170, 30, 20);
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        minutosfin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                minutosfinActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(420, 170, 30, 20);
+        jPanel1.add(minutosfin);
+        minutosfin.setBounds(420, 170, 30, 20);
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        minutosini.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                minutosiniActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(280, 170, 30, 20);
+        jPanel1.add(minutosini);
+        minutosini.setBounds(280, 170, 30, 20);
 
         add(jPanel1);
         jPanel1.setBounds(0, 0, 520, 390);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_nombreActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String datos[] = new String[6];
+        String nombres = nombre.getText();
+        datos[0]=nombres;
+        String dias = dia.getSelectedItem().toString();
+        String meses = mes.getSelectedItem().toString();
+        String anios = anio.getSelectedItem().toString();
+        String fecha = dias+"/"+meses+"/"+anios;
+        datos[1]= fecha;
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox10ActionPerformed
+    private void anioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox10ActionPerformed
+    }//GEN-LAST:event_anioActionPerformed
 
-    private void jComboBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox11ActionPerformed
+    private void mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox11ActionPerformed
+    }//GEN-LAST:event_mesActionPerformed
 
-    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
+    private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox12ActionPerformed
+    }//GEN-LAST:event_diaActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void horainiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horainiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_horainiActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void horafinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horafinActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_horafinActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void minutosfinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minutosfinActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_minutosfinActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void minutosiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minutosiniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_minutosiniActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> anio;
+    private javax.swing.JComboBox<String> dia;
+    private javax.swing.JTextField horafin;
+    private javax.swing.JTextField horaini;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox11;
-    private javax.swing.JComboBox<String> jComboBox12;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -296,10 +305,9 @@ public class Actividad extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JComboBox<String> mes;
+    private javax.swing.JTextField minutosfin;
+    private javax.swing.JTextField minutosini;
+    private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }
