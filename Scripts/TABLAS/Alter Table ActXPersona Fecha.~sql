@@ -1,0 +1,8 @@
+/*
+Fecha: 03 Octubre 2018  
+Autor: Ignacio Jarquín Poveda
+Descripcion: Agrega el campo fecha de nacimiento a la tabla persona
+*/
+ALTER TABLE ACTXpersona
+ADD fecha DATE;
+COMMENT ON COLUMN CE.ACTXpersona.fecha is 'FECHA DE INSCRIPCION DE UNA PERSONA A UNA ACTIVIDAD';

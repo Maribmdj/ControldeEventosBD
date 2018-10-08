@@ -9,7 +9,12 @@ GRANT create PROCEDURE to ce;
 
 GRANT UNLIMITED tablespace TO CE;
 
-grant execute on ce.inserts_catalogo to CE;
+grant execute on ce.inserts_catalogos to CE;
+grant execute on ce.inserts_tablas to CE;
+grant execute on ce.updates_catalogos to CE;
+grant execute on ce.updates_tablas to CE;
+grant execute on ce.delete_catalogos to CE;
+grant execute on ce.delete_tablas to CE;
 
 --GRANTS SECUENCIAS
 --grant select on schema_name.sequence_name to user_or_role_name;
