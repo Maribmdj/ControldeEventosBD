@@ -25,8 +25,6 @@ public class FormularioAdmin extends javax.swing.JFrame {
      */
     public FormularioAdmin() {
         initComponents();
-        
-        t.ver_tabla(tabla);
     }
 
     /**
@@ -46,9 +44,8 @@ public class FormularioAdmin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         panelEventos = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
-        comboevento = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
@@ -66,10 +63,7 @@ public class FormularioAdmin extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenuItem17.setText("jMenuItem17");
 
@@ -107,36 +101,21 @@ public class FormularioAdmin extends javax.swing.JFrame {
 
         panelEventos.setLayout(new java.awt.GridLayout(1, 0));
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tabla);
+        jScrollPane2.setViewportView(tabla);
 
-        panelEventos.add(jScrollPane1);
+        panelEventos.add(jScrollPane2);
 
         jPanel1.add(panelEventos);
         panelEventos.setBounds(10, 130, 730, 380);
 
-        comboevento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboevento.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Buscar Evento ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboeventoActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(comboevento);
-        comboevento.setBounds(150, 80, 150, 30);
-
-        jButton1.setText("Buscar Evento ");
         jPanel1.add(jButton1);
-        jButton1.setBounds(30, 80, 110, 30);
+        jButton1.setBounds(30, 90, 110, 30);
 
         jMenu3.setText("Consultas");
 
@@ -199,22 +178,8 @@ public class FormularioAdmin extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem2);
 
-        jMenuItem3.setText("Eliminar Evento");
-        jMenu5.add(jMenuItem3);
-
-        jMenuItem4.setText("Editar Evento");
-        jMenu5.add(jMenuItem4);
-
         jMenuItem5.setText("Inactivar Registro");
         jMenu5.add(jMenuItem5);
-
-        jMenuItem1.setText("Cancelar Evento");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem1);
 
         jMenuBar2.add(jMenu5);
 
@@ -238,30 +203,19 @@ public class FormularioAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
-    private void comboeventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboeventoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboeventoActionPerformed
-
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // ADMINISTRADORES
-        Vector columnas = new Vector();
-        Vector filas = new Vector();
-        JTable tbl = new JTable(filas,columnas);
-        tbl.setPreferredScrollableViewportSize(new Dimension(500, 80));
-        JScrollPane scroll =new JScrollPane(tbl);
-        getContentPane().add(scroll, BorderLayout.CENTER);
-        panelEventos.add(tbl);
-        getContentPane().invalidate();
-        getContentPane().validate();
+
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //DESPLEGAR EVENTOS
+         t.ver_tabla(tabla);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,7 +256,6 @@ public class FormularioAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> comboevento;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -313,15 +266,12 @@ public class FormularioAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
@@ -331,7 +281,7 @@ public class FormularioAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelEventos;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
