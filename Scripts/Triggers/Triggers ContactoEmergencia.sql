@@ -1,6 +1,6 @@
 CREATE OR REPLACE TRIGGER ce.beforeInsertContactoEMG
 BEFORE INSERT
-ON ce.ContactoEMG
+ON ce.CONTACTOEMG
 FOR EACH ROW
 BEGIN
     :new.usuario_creacion:=USER;
@@ -9,7 +9,7 @@ END beforeInsertContactoEMG;
 
 CREATE OR REPLACE TRIGGER ce.beforeUpdateContactoEMG
 BEFORE UPDATE
-ON ce.ContactoEMG
+ON ce.CONTACTOEMG
 FOR EACH ROW
 BEGIN
     :new.usuario_ultima_modificacion:=USER;
