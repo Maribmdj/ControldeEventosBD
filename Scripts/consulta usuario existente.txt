@@ -1,0 +1,5 @@
+CREATE OR REPLACE FUNCTION getUsuario(pUsuario in varchar2)
+      IF EXIST 
+	(SELECT u.usuario
+        FROM usuario
+	WHERE pUsuario=usuario);
