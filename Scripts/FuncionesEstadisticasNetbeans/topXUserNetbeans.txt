@@ -1,0 +1,19 @@
+public ResultSet topXUser(String nombre)  {
+        db = getConexion();
+        sql = "{call ce.topUsuariosActivos(?,?,?,?)}";
+        try 
+        {            
+            cs = conexion.prepareCall(sql);          
+            cs.setStirng(1, nombre);
+	    cs.setInt(2, rangoBajo);
+	    cs.setInt(3, rangoAlto);
+            cs.registerOutParameter(4, OracleTypes.CURSOR);            
+            cs.execute();
+            rs = (ResultSet) cs.getObject(4);
+            
+            return rs; 
+            
+        }catch (Exception e)
+            { e.printStackTrace(); }  
+        return rs;
+    }

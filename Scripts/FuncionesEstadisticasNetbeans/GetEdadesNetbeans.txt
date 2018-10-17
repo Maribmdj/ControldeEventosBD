@@ -1,0 +1,16 @@
+public ResultSet edadesxPersona()  {
+        db = getConexion();
+        sql = "{call ce.getEdades(?)}";
+        try 
+        {            
+            cs = conexion.prepareCall(sql);          
+            cs.registerOutParameter(1, OracleTypes.CURSOR);            
+            cs.execute();
+            rs = (ResultSet) cs.getObject(1);
+            
+            return rs; 
+            
+        }catch (Exception e)
+            { e.printStackTrace(); }  
+        return rs;
+    }

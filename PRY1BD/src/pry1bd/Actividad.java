@@ -16,6 +16,7 @@ public class Actividad extends javax.swing.JPanel {
      */
     public Actividad() {
         initComponents();
+        setVisible(true);
     }
 
     /**
@@ -54,6 +55,14 @@ public class Actividad extends javax.swing.JPanel {
         horafin = new javax.swing.JTextField();
         minutosfin = new javax.swing.JTextField();
         minutosini = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tipopublico = new javax.swing.JComboBox<>();
+        cupo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        estado = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lugar = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -134,7 +143,7 @@ public class Actividad extends javax.swing.JPanel {
             }
         });
         jPanel1.add(anio);
-        anio.setBounds(290, 260, 49, 20);
+        anio.setBounds(280, 260, 49, 20);
 
         mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         mes.addActionListener(new java.awt.event.ActionListener() {
@@ -152,11 +161,11 @@ public class Actividad extends javax.swing.JPanel {
             }
         });
         jPanel1.add(dia);
-        dia.setBounds(170, 260, 40, 20);
+        dia.setBounds(180, 260, 40, 20);
 
         jLabel16.setText("Dia");
         jPanel1.add(jLabel16);
-        jLabel16.setBounds(180, 240, 15, 10);
+        jLabel16.setBounds(200, 240, 15, 10);
 
         jLabel18.setText("Mes");
         jPanel1.add(jLabel18);
@@ -164,7 +173,7 @@ public class Actividad extends javax.swing.JPanel {
 
         jLabel20.setText("Año");
         jPanel1.add(jLabel20);
-        jLabel20.setBounds(300, 240, 40, 14);
+        jLabel20.setBounds(290, 240, 40, 14);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Fecha ");
@@ -232,6 +241,46 @@ public class Actividad extends javax.swing.JPanel {
         jPanel1.add(minutosini);
         minutosini.setBounds(280, 170, 30, 20);
 
+        jLabel5.setText("Cupo");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(420, 210, 34, 14);
+
+        tipopublico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(tipopublico);
+        tipopublico.setBounds(40, 240, 100, 20);
+
+        cupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cupoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cupo);
+        cupo.setBounds(400, 230, 60, 20);
+
+        jLabel6.setText("Tipo de Publico");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(50, 210, 80, 14);
+
+        estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jPanel1.add(estado);
+        estado.setBounds(50, 290, 64, 20);
+
+        jLabel7.setText("Estado");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(70, 270, 33, 14);
+
+        jLabel8.setText("Lugar");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(420, 270, 27, 14);
+
+        lugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lugarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(lugar);
+        lugar.setBounds(370, 290, 120, 20);
+
         add(jPanel1);
         jPanel1.setBounds(0, 0, 520, 390);
     }// </editor-fold>//GEN-END:initComponents
@@ -241,7 +290,7 @@ public class Actividad extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String datos[] = new String[6];
+        String datos[] = new String[7];
         String nombres = nombre.getText();
         datos[0]=nombres;
         String dias = dia.getSelectedItem().toString();
@@ -249,6 +298,17 @@ public class Actividad extends javax.swing.JPanel {
         String anios = anio.getSelectedItem().toString();
         String fecha = dias+"/"+meses+"/"+anios;
         datos[1]= fecha;
+        String horainicio = horaini.getText()+":"+minutosini.getText();
+        datos[2]=horainicio;
+        String horafinal = horafin.getText()+":"+minutosfin.getText();
+        datos[3]= horafinal;
+        datos[4]= cupo.getText();
+        datos[5]= lugar.getText();
+        datos[6]= estado.getSelectedItem().toString();
+        datos[7]= tipopublico.getSelectedItem().toString();
+        setVisible(false); 
+        
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -280,10 +340,20 @@ public class Actividad extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_minutosiniActionPerformed
 
+    private void cupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cupoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cupoActionPerformed
+
+    private void lugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lugarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lugarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> anio;
+    private javax.swing.JTextField cupo;
     private javax.swing.JComboBox<String> dia;
+    private javax.swing.JComboBox<String> estado;
     private javax.swing.JTextField horafin;
     private javax.swing.JTextField horaini;
     private javax.swing.JButton jButton1;
@@ -303,11 +373,17 @@ public class Actividad extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField lugar;
     private javax.swing.JComboBox<String> mes;
     private javax.swing.JTextField minutosfin;
     private javax.swing.JTextField minutosini;
     private javax.swing.JTextField nombre;
+    private javax.swing.JComboBox<String> tipopublico;
     // End of variables declaration//GEN-END:variables
 }

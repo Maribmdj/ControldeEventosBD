@@ -5,28 +5,68 @@
  */
 package pry1bd;
 
+import Utilidades.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.table.DefaultTableModel;
+import static pry1bd.Conexion.rs;
 
 /**
  *
  * @author Nakisha Dixon
  */
 public class Formulary extends javax.swing.JFrame {
-
+        Tabla t = new Tabla();
+        Conexion conectarse = new Conexion();
+        Register reg = new Register();
+        DefaultTableModel modelo = new DefaultTableModel();
     /**
      * Creates new form Formulary
      */
     public Formulary() {
         initComponents();
         setSize(700,530);
-    }
+        setResizable(false);
+        conectarse.Conectar();
+        InvisiblesComp();
 
+    }
+    
+   
+    public void InvisiblesComp()
+    { 
+        lblEvento.setVisible(false);
+        cbParam1.setVisible(false);
+        btnMostrar1.setVisible(false);
+        btnInscripcion.setVisible(false);
+    }
+    
+    public void LimpiarcbEvento(){
+        int ItemCount  = cbParam1.getItemCount();
+        for(int i=0; i<ItemCount; i++){
+            cbParam1.remove(0);
+        }
+    }
+    public void llenarCBEvento(){
+        LimpiarcbEvento();
+        try{           
+            ResultSet r;
+            r = conectarse.MostrarEventos();
+            
+            cbParam1.addItem("SELECCIONE:");
+            while (r.next()){
+                cbParam1.addItem(r.getString(1));                
+            }        
+        }catch (Exception e) {e.printStackTrace();}
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,32 +76,55 @@ public class Formulary extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         FormularyPanel = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        lblEvento = new javax.swing.JLabel();
+        btnInscripcion = new javax.swing.JButton();
+        cbParam1 = new javax.swing.JComboBox<>();
+        btnMostrar1 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 500));
         jPanel1.setLayout(null);
+
+        FormularyPanel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        FormularyPanel.setViewportView(tabla);
+
         jPanel1.add(FormularyPanel);
-        FormularyPanel.setBounds(20, 190, 661, 290);
+        FormularyPanel.setBounds(10, 120, 670, 350);
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 153));
         jPanel3.setLayout(null);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Formulario");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(250, 0, 240, 70);
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("FORMULARIO");
+        jPanel3.add(lblTitulo);
+        lblTitulo.setBounds(0, 0, 750, 60);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 10, 750, 60);
@@ -76,28 +139,70 @@ public class Formulary extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 34, 750, 0);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("Evento");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(50, 80, 44, 17);
+        lblEvento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblEvento.setForeground(new java.awt.Color(102, 102, 102));
+        lblEvento.setText("Evento");
+        jPanel1.add(lblEvento);
+        lblEvento.setBounds(30, 80, 44, 17);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(40, 100, 168, 31);
-
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Mostrar ");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInscripcion.setBackground(new java.awt.Color(153, 153, 153));
+        btnInscripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnInscripcion.setForeground(new java.awt.Color(255, 255, 255));
+        btnInscripcion.setText("Inscribirse ");
+        btnInscripcion.setActionCommand("");
+        btnInscripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInscripcionActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(230, 100, 87, 31);
+        jPanel1.add(btnInscripcion);
+        btnInscripcion.setBounds(580, 80, 87, 31);
+
+        jPanel1.add(cbParam1);
+        cbParam1.setBounds(90, 80, 160, 30);
+
+        btnMostrar1.setBackground(new java.awt.Color(153, 153, 153));
+        btnMostrar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnMostrar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnMostrar1.setText("Mostrar ");
+        btnMostrar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnMostrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMostrar1);
+        btnMostrar1.setBounds(280, 80, 87, 31);
+
+        jMenu4.setText("Ver");
+
+        jMenuItem2.setText("Actividades");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem2);
+
+        jMenuBar2.add(jMenu4);
+
+        jMenu3.setText("Incripción");
+
+        jMenuItem1.setText("Inscripción a Actividad");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuItem3.setText("Mis inscripciones");
+        jMenu3.add(jMenuItem3);
+
+        jMenuBar2.add(jMenu3);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,23 +212,51 @@ public class Formulary extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Vector columnas = new Vector();
-        Vector filas = new Vector();
-        JTable tbl = new JTable(filas,columnas);
-        tbl.setPreferredScrollableViewportSize(new Dimension(500, 80));
-        JScrollPane scroll =new JScrollPane(tbl);
-        getContentPane().add(scroll, BorderLayout.CENTER);
-        FormularyPanel.add(tbl);
-        getContentPane().invalidate();
-        getContentPane().validate();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscripcionActionPerformed
+        
+    }//GEN-LAST:event_btnInscripcionActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+                               
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        InvisiblesComp();
+        lblTitulo.setText("AGENDA DE ACTIVIDADES");
+        lblEvento.setVisible(true); lblEvento.setText("Evento");
+        cbParam1.setVisible(true);  
+        btnMostrar1.setVisible(true);
+        llenarCBEvento();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void btnMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar1ActionPerformed
+        String evento = cbParam1.getSelectedItem().toString();         
+         try{            
+            this.tabla.setModel(modelo);
+            ResultSet r;
+            r = conectarse.AgendaEventos(evento);
+            ResultSetMetaData rsMd = r.getMetaData();
+            int cntddColumnas = rsMd.getColumnCount();             
+            for (int i=1; i<=cntddColumnas; i++){
+                modelo.addColumn(rsMd.getColumnLabel(i));
+            }
+            while (rs.next()){
+                Object[] fila = new Object[cntddColumnas];
+                for(int i=0; i<cntddColumnas; i++){
+                    fila[i]=rs.getObject(i+1);
+                }
+                modelo.addRow(fila);            
+        }
+        }catch (Exception e) {e.printStackTrace();}
+        btnInscripcion.setVisible(true); 
+        
+    }//GEN-LAST:event_btnMostrar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,13 +296,24 @@ public class Formulary extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane FormularyPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btnInscripcion;
+    private javax.swing.JButton btnMostrar1;
+    private javax.swing.JComboBox<String> cbParam1;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblEvento;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

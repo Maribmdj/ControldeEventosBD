@@ -12,9 +12,10 @@ import org.apache.commons.codec.digest.DigestUtils;
  */
 public class Encriptar {
     
-    void encriptarContrasenia (String contrasenia){
+    public String encriptarContrasenia (String contrasenia){
         String textoEncriptadoConMD5=DigestUtils.md5Hex(contrasenia); 
         System.out.println("Texto Encriptado con MD5 : "+textoEncriptadoConMD5);
+        return textoEncriptadoConMD5;
 
     }
     

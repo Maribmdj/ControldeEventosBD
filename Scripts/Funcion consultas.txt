@@ -1,0 +1,20 @@
+public ResultSet consultaAdmins(String nombre, String apellido, String identf, String usuario)  {
+        db = getConexion();
+        sql = "{call ce.getAdministrador(?,?,?,?,?)}";
+        try 
+        {            
+            cs = conexion.prepareCall(sql);          
+            cs.setString(1, nombre);
+            cs.setString(2, apellido);
+            cs.setString(3, identf);
+            cs.setString(4, usuario);
+            cs.registerOutParameter(5, OracleTypes.CURSOR);            
+            cs.execute();
+            rs = (ResultSet) cs.getObject(5);
+            
+            return rs; 
+            
+        }catch (Exception e)
+            { e.printStackTrace(); }  
+        return rs;
+    }

@@ -73,15 +73,9 @@ public class Tabla{
  
     }
     
-    public void ingresar_actividad(){
-        ArrayList<String> names = new ArrayList<String>();
-        names.add("Amy");
-        names.add("Bob");
-        names.add("Cindy");
-        d.insertRow(cont,new Object[9]());
-        d.setValueAt(names.get(1), cont, 0);
-        d.setValueAt(names.get(2), cont, 1);
-        d.setValueAt(names.get(3), cont, 2);
+    public void ingresar_actividad(String datos[]){
+        Object[] row = { datos[1], datos[2], datos[3], datos[4],datos[5],datos[6],datos[7]};
+        d.addRow(row);
         cont++;
         
         

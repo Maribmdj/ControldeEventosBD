@@ -1,0 +1,17 @@
+public ResultSet actPorTipo(String nombre)  {
+        db = getConexion();
+        sql = "{call ce.totalActividades(?,?)}";
+        try 
+        {            
+            cs = conexion.prepareCall(sql);          
+            cs.setString(1, nombre);
+            cs.registerOutParameter(2, OracleTypes.CURSOR);            
+            cs.execute();
+            rs = (ResultSet) cs.getObject(2);
+            
+            return rs; 
+            
+        }catch (Exception e)
+            { e.printStackTrace(); }  
+        return rs;
+    }
